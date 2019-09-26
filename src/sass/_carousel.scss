@@ -1,0 +1,117 @@
+.carousel {
+  $comp: &;
+
+  margin: 0 auto;
+
+  &__visual {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__window {
+    width: 999em;
+    display: flex;
+    margin-left: -10px;
+  }
+
+  &__slide {
+    width: 96vw;
+    cursor: grab;
+    margin: 0 10px;
+
+    #{$comp}__window--dragging & {
+      cursor: grabbing;
+    }
+
+    @media(min-width: $mq-sm) {
+      width: 600px;
+    }
+
+    @media(min-width: $mq-md) {
+      width: 800px;
+    }
+
+    @media(min-width: $mq-lg) {
+      width: 1200px;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    z-index: 5000;
+    background: rgba(0,0,0,0.5);
+    padding: 0;
+    display: block;
+    width: 50px;
+    height: 50px;
+    left: 0;
+    top: calc(50% - 25px);
+    border-radius: 0;
+    margin: 0;
+    transition-duration: 0.3s;
+    cursor: pointer;
+
+    &:hover { background: rgba(0,0,0,0.8); }
+
+    &::before,
+    &::after {
+      content: "";
+      display: table;
+      position: absolute;
+      width: 2px;
+      height: 16px;
+      top: 0;
+      left: 20px;
+      transition: 0.15s;
+      background: #FFF;
+      box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+
+    &::before {
+      transform: rotate(45deg);
+      top: 10px;
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+      top: 20px;
+    }
+
+    &--next {
+      transform: scaleX(-1);
+      left: auto;
+      right: 0;
+    }
+
+    &--inactive {
+      opacity: 0.4;
+      cursor: default;
+      &:hover { background: rgba(0,0,0,0.5); }
+    }
+
+    @media(max-width: $mq-sm)
+    {
+      background: rgba(0,0,0,0);
+      &:hover { background: rgba(0,0,0,0); }
+
+      &::before,
+      &::after
+      { left: 10px; }
+    }
+
+    @media(min-width: $mq-lg) {
+      width: 60px;
+      height: 60px;
+      top: calc(50% - 30px);
+
+      &::before,
+      &::after
+      {
+        height: 22px;
+        left: 26px;
+      }
+
+      &::after { top: 25px; }
+    }
+  }
+}
