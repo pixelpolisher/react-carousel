@@ -1,0 +1,16 @@
+.wrapper {
+  width: 96vw;
+  margin: 0 auto;
+
+  @media(min-width: $mq-sm) {
+    width: 600px;
+  }
+
+  @media(min-width: $mq-md) {
+    width: 800px;
+  }
+
+  @media(min-width: $mq-lg) {
+    width: 1200px;
+  }
+}
