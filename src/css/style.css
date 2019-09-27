@@ -102,7 +102,7 @@ h2, h3, h4, h5, h6, p {
       left: auto;
       right: 0; }
     .carousel__nav--inactive {
-      opacity: 0.4;
+      opacity: 0.2;
       cursor: default; }
       .carousel__nav--inactive:hover {
         background: rgba(0, 0, 0, 0.5); }

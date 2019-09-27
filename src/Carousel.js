@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TweenLite, Power2 } from "gsap";
+import { TweenLite, Power4 } from "gsap";
 import Draggable from "gsap/Draggable";
 
 import classnames from 'classnames';
@@ -65,7 +65,7 @@ class Carousel extends Component {
     let speed = null;
     time ? speed = time: speed = slideSpeed;
 
-    TweenLite.to(this.carouselWindow, speed, {x: xTarget, ease: Power2.EaseInOut });
+    TweenLite.to(this.carouselWindow, speed, {x: xTarget, ease: Power4.EaseInOut });
     this.slideDone();
   }
 
