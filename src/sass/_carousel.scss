@@ -2,6 +2,8 @@
   $comp: &;
 
   margin: 0 auto;
+  opacity: 0;
+  animation: fadeIn 0.2s forwards 0.3s;
 
   &__visual {
     position: relative;
@@ -114,4 +116,8 @@
       &::after { top: 25px; }
     }
   }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
