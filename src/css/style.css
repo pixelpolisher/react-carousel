@@ -41,7 +41,9 @@ h2, h3, h4, h5, h6, p {
       width: 1200px; } }
 
 .carousel {
-  margin: 0 auto; }
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeIn 0.2s forwards 0.3s; }
   .carousel__visual {
     position: relative;
     overflow: hidden; }
@@ -123,3 +125,7 @@ h2, h3, h4, h5, h6, p {
           left: 26px; }
         .carousel__nav::after {
           top: 25px; } }
+
+@keyframes fadeIn {
+  to {
+    opacity: 1; } }
