@@ -152,12 +152,22 @@ class Carousel extends Component {
     const { data } = this.props;
 
     const slides = data.map((slide, index) => {
+
+      let renderImage = null;
+      switch(index) {
+        case activeSlide-1:
+        case activeSlide:
+        case activeSlide+1:
+          renderImage = <img src={`images/${slide.image}`} alt={slide.title} />;
+          break;
+        default:
+          renderImage = null;
+          break;
+      }
       return (
         <div className={classnames({ "carousel__slide": true, "carousel__slide--active": index === activeSlide })  }
-          key={slide.id}
-          onMouseDown={this.mouseDown}
-          onMouseUp={this.mouseUp}>
-          <img src={`images/${slide.image}`} alt={slide.title} />
+          key={slide.id}>
+          {renderImage}
         </div>
       )
     });
@@ -170,7 +180,9 @@ class Carousel extends Component {
         <div className="carousel__visual">
           <div
             className={classnames({ "carousel__window": true, "carousel__window--dragging": this.state.dragging }) }
-            ref={div => this.carouselWindow = div}>
+            ref={div => this.carouselWindow = div}
+            onMouseDown={this.mouseDown}
+            onMouseUp={this.mouseUp}>
             { slides }
           </div>
           <span
