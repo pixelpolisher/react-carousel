@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Carousel from './Carousel';
 
 import './css/style.css';
-import { deserts } from './Deserts';
+import { deserts } from './data/Deserts';
 
 class App extends Component {
 
@@ -12,9 +12,7 @@ class App extends Component {
       <div className="wrapper">
         <main className="main">
           <h1 className="main__title">Deserts of the world</h1>
-          <Switch>
-            <Route path="/" render={(props) => <Carousel {...props} data={deserts} />} />
-          </Switch>
+          <Carousel data={deserts} />
         </main>
       </div>
     );
