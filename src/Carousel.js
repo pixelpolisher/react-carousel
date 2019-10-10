@@ -175,10 +175,8 @@ class Carousel extends Component {
       <div className="carousel" ref={div => this.carousel = div}>
         <div className="carousel__visual">
           <div
-            className={classnames({ "carousel__window": true, "carousel__window--dragging": this.state.dragging }) }
-            ref={div => this.carouselWindow = div}
-            onMouseDown={this.mouseDown}
-            onMouseUp={this.mouseUp}>
+            className="carousel__window"
+            ref={div => this.carouselWindow = div}>
             { slides }
           </div>
           <span
