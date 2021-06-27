@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { TweenLite, Power4 } from "gsap";
+import gsap from "gsap";
 import Draggable from "gsap/Draggable";
 
 import classnames from 'classnames';
 import debounce from 'lodash/debounce';
 import delay from 'lodash/delay';
+
+gsap.registerPlugin(Draggable);
 
 //  set up global carousel variables so that we can access them from easily anywhere inside our component
 let swipeDir = null;
@@ -29,6 +31,20 @@ class Carousel extends Component {
     this.goToSlide = this.goToSlide.bind(this);
     this.checkUrl = this.checkUrl.bind(this);
     this.measureAfterResize = debounce(this.measureAfterResize, 500);
+  }
+
+  aomponentDidMount () {
+    window.scrollTo(0,0);
+
+    // count the number of slides passed through in the data object and measure the width of the carousel
+    numSlides = this.props.data.length;
+
+    this.measureCarousel();
+    this.checkUrl(this.props.curUrl);
+
+    Draggable.create('.foo', {
+      type:'x'
+    });
   }
 
   componentDidMount() {
@@ -103,7 +119,11 @@ class Carousel extends Component {
       return;
     }
 
-    TweenLite.to(this.carouselWindow, speed, {x: xTarget, ease: Power4.EaseInOut });
+    gsap.to(this.carouselWindow, {
+      duration: speed,
+      x: xTarget,
+      ease: "power4.inout"
+    });
 
     // update reachedStart and reachedEnd. These set the max and min bounds to which the slider can move.
     // when on the first slide, disable the possibility of going further back
