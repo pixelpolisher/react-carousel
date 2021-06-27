@@ -1,6 +1,6 @@
 ## Demo
 
-See [github.pixelpolisher.com/carousel](http://github.pixelpolisher.com/carousel) for a demo.
+See [https://pp-react-carousel.netlify.app/](https://pp-react-carousel.netlify.app/) for a demo.
 
 ## Available Scripts
 

@@ -174,7 +174,7 @@ class Carousel extends Component {
         case activeSlide-1:
         case activeSlide:
         case activeSlide+1:
-          renderImage = <img src={`images/${slide.image}`} alt={slide.title} />;
+          renderImage = <img src={`images/${slide.image}`} alt={slide.title} loading="lazy" />;
           break;
         default:
           renderImage = null;
